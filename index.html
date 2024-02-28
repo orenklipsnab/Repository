@@ -9,7 +9,6 @@
   const form = document.forms['submit-to-google-sheet']
   var tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
   
-
   form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
@@ -61,8 +60,8 @@
   <input name="email" type="email" placeholder="Email" required>
   <input name="firstName" type="text" placeholder="First Name">
   <input name="lastName" type="text" placeholder="Last Name">
-  <input type="text" id="userid" name="userid" value="">
-  <input type="text" id="username" name="username" value="">
+  <input type="text" id="userid" name="userid">
+  <input type="text" id="username" name="username">
   <button type="submit">Send</button>
 </form>
 
