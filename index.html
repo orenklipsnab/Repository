@@ -35,10 +35,16 @@
      })
 </script>
 
-  <script>
+ <script>
    let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
 
    tg.expand(); //расширяем на все окно  
+
+   Telegram.WebApp.onEvent('mainButtonClicked', function(){
+      tg.sendData("some string that we need to send"); 
+      //при клике на основную кнопку отправляем данные в строковом виде
+   });
+
 
    let usercard = document.getElementById("usercard"); //получаем блок usercard 
 
@@ -49,16 +55,9 @@
    //выдем имя, "фамилию", через тире username и код языка
    usercard.appendChild(profName); //добавляем 
 
-   let myuserid = document.getElementById("myuserid"); //создаем еще параграф 
-   myuserid.value = `${tg.initDataUnsafe.user.id}`;  // user_id
-
-   let myusername = document.getElementById("myusername"); //создаем еще параграф 
-   myusername.value = `${tg.initDataUnsafe.user.username}`; 
-   
-    
-   //let userid = document.createElement('p'); //создаем еще параграф 
-   //userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-   //usercard.appendChild(userid); //добавляем
+   let userid = document.createElement('p'); //создаем еще параграф 
+   userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+   usercard.appendChild(userid); //добавляем
 
 
    //работает только в attachment menu
@@ -66,8 +65,6 @@
    // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src 
    // usercard.appendChild(pic); //добавляем элемент в карточку 
 </script>
-
-
 
 
 </body>
