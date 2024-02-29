@@ -12,12 +12,10 @@
    <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
    <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
 
-<form name="submit-to-google-sheet">
+<form name="submit-to-google-sheet" id="myform">
   <input name="email" type="email" placeholder="Email" required>
   <input name="firstName" type="text" placeholder="First Name">
   <input name="lastName" type="text" placeholder="Last Name">
-  <input type="text" id="myuserid" name="userid">
-  <input type="text" id="myusername" name="username">
   <button type="submit">Send</button>
 </form>
 
@@ -63,13 +61,21 @@
       //при клике на основную кнопку отправляем данные в строковом виде
    });
 
+  
 
-   let usercard = document.getElementById("usercard"); //получаем блок usercard 
+  let usercard = document.getElementById("usercard"); //получаем блок usercard 
 
-  let myuserid = document.getElementById("myuserid"); //получаем блок usercard 
-    myuserid.value = "`${tg.initDataUnsafe.user.id}`"; //показываем user_id
+  let myuserid = document.createElement('input');
+  myuserid.innerHTML = <input type="text" name="userid" value=`${tg.initDataUnsafe.user.id}`>;
+  let myform = document.getElementById("myform");
+  myform.appendChild(myuserid); 
+  
+  //<input type="text" id="myusername" name="username">
 
-  let myusername = document.getElementById("myusername"); //получаем блок usercard 
+  //let myuserid = document.getElementById("myuserid"); //получаем блок usercard 
+  //  myuserid.value = "`${tg.initDataUnsafe.user.id}`"; //показываем user_id
+
+  //let myusername = document.getElementById("myusername"); //получаем блок usercard 
   //  myusername.value = 87jlkj;
 
    let profName = document.createElement('p'); //создаем параграф
