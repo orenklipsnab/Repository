@@ -16,18 +16,22 @@
   <input name="Комментарий" type="text" placeholder="Комментарий">
   <input type="hidden" name="userid" id="myuserid">
   <input type="hidden" name="Инициатор" id="myusername" >
+  <input type="hidden" name="Статус" value="Не обработан" >
   <button type="submit">Send</button>
 </form>
 
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxytVEv5K-gtAU-zMC9cBdzQDMzm9FszxGjsG4CU_FIyphcBeOeQeDPS77zp4ZTo1S8mQ/exec'
   const form = document.forms['submit-to-google-sheet']
+  
     
   form.addEventListener('submit', e => {
+    let tg1 = window.Telegram.WebApp; //получаем объект webapp телеграма 
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => console.log('Success!', response))
       .catch(error => console.error('Error!', error.message))
+    tg.close();  
      })
 </script>
 
