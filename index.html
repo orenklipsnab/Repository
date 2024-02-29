@@ -14,34 +14,41 @@
 
 
 
-  
-<form name="submit-to-google-sheet">
-  <input name="email" type="email" placeholder="Email" required>
-  <input name="firstName" type="text" placeholder="First Name">
-  <input name="lastName" type="text" placeholder="Last Name">
-  <input type="text" id="myuserid" name="userid">
-  <input type="text" id="myusername" name="username">
-  <button type="submit">Send</button>
-</form>
-
 </body>
   
-  <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxytVEv5K-gtAU-zMC9cBdzQDMzm9FszxGjsG4CU_FIyphcBeOeQeDPS77zp4ZTo1S8mQ/exec'
-  const form = document.forms['submit-to-google-sheet']
-    
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-     })
-</script>
-
- <script>
+<script>
    let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
 
    tg.expand(); //расширяем на все окно  
+
+   tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
+   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
+   tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+   tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
+   tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
+
+   let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать 
+
+   btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+      if (tg.MainButton.isVisible){ //если кнопка показана 
+         tg.MainButton.hide() //скрываем кнопку 
+      }
+      else{ //иначе
+         tg.MainButton.show() //показываем 
+      }
+   });
+
+   let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
+   btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+      if (tg.MainButton.isActive){ //если кнопка показана 
+         tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
+         tg.MainButton.disable() //скрываем кнопку 
+      }
+      else{ //иначе
+         tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
+         tg.MainButton.enable() //показываем 
+      }
+   });
 
    Telegram.WebApp.onEvent('mainButtonClicked', function(){
       tg.sendData("some string that we need to send"); 
@@ -68,8 +75,4 @@
    // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src 
    // usercard.appendChild(pic); //добавляем элемент в карточку 
 </script>
-
-
-</body>
 </html>
-
