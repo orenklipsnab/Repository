@@ -12,6 +12,14 @@
    <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
    <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
 
+<form name="submit-to-google-sheet">
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="firstName" type="text" placeholder="First Name">
+  <input name="lastName" type="text" placeholder="Last Name">
+  <input type="text" id="myuserid" name="userid">
+  <input type="text" id="myusername" name="username">
+  <button type="submit">Send</button>
+</form>
 
 
 </body>
@@ -57,6 +65,12 @@
 
 
    let usercard = document.getElementById("usercard"); //получаем блок usercard 
+
+  let myuserid = document.getElementById("myuserid"); //получаем блок usercard 
+    myuserid.value = `${tg.initDataUnsafe.user.id}`;
+
+  let myusername = document.getElementById("myuserid"); //получаем блок usercard 
+    myusername.value = `${tg.initDataUnsafe.user.username}`;
 
    let profName = document.createElement('p'); //создаем параграф
    profName.innerText = `${tg.initDataUnsafe.user.first_name}
