@@ -89,9 +89,6 @@
    });
 
   
-
-  let usercard = document.getElementById("usercard"); //получаем блок usercard 
-
   //let myuserid = document.createElement('input');
   //myuserid.innerHTML = "<input type="text" name="userid" value=`${tg.initDataUnsafe.user.id}`>";
   //let myform = document.getElementById("myform");
@@ -107,12 +104,13 @@
 
    
    
-   let s = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
-   document.getElementById("myusername").value = s;
-   s = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-   document.getElementById("myuserid").value = s;
+  let s = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
+  document.getElementById("myusername").value = s;
+  s = `${tg.initDataUnsafe.user.id}`; //показываем user_id
   document.getElementById("myuserid").value = s;
-  document.getElementById("mydate").value = Date.now();
+  document.getElementById("myuserid").value = s;
+  var formattedDate = moment().format('DD.MM.YYYY')
+  document.getElementById("mydate").value = formattedDate;
   
 
 
