@@ -1,5 +1,6 @@
 <html>
   <head>
+   <title>Добавление закза</title>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,22 +88,7 @@
       tg.sendData("some string that we need to send"); 
       //при клике на основную кнопку отправляем данные в строковом виде
    });
-
-  
-  //let myuserid = document.createElement('input');
-  //myuserid.innerHTML = "<input type="text" name="userid" value=`${tg.initDataUnsafe.user.id}`>";
-  //let myform = document.getElementById("myform");
-  //myform.appendChild(myuserid); 
-  
-  //<input type="text" id="myusername" name="username">
-
  
-  //  myuserid.value = "`${tg.initDataUnsafe.user.id}`"; //показываем user_id
-
-  //let myusername = document.getElementById("myusername"); //получаем блок usercard 
-  //  myusername.value = 87jlkj;
-
-   
    
   let s = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
   document.getElementById("myusername").value = s;
