@@ -46,8 +46,7 @@
 <p>Добавление закза</p> <!--Просто текст для проверки-->
    
 <form name="submit-to-google-sheet" id="myform">
-  <input type="text" name="Дата" id="mydate"><br>
-  <input name="Наименование материала" type="text" placeholder="Наименование материала" required><br>
+   <input name="Наименование материала" type="text" placeholder="Наименование материала" required><br>
   <input name="Кол-во" type="text" placeholder="Количество" ><br>
   <input name="Оборудование" type="text" placeholder="Оборудование"><br>
   <input name="Контрагент" type="text" placeholder="Контрагент"><br>
@@ -109,10 +108,7 @@
   s = `${tg.initDataUnsafe.user.id}`; //показываем user_id
   document.getElementById("myuserid").value = s;
   document.getElementById("myuserid").value = s;
-  var formattedDate = moment().format('DD.MM.YYYY')
-  document.getElementById("mydate").value = formattedDate;
   
-
 
    //работает только в attachment menu
    // let pic = document.createElement('img'); //создаем img
