@@ -46,15 +46,15 @@
 
 <center>
 <p>Добавление заказа</p> <!--Просто текст для проверки-->
-   
-<form name="submit-to-google-sheet" id="myform">
+
+<form name="submit-to-google-sheet" id="myform" method="post" enctype="multipart/form-data">
    <input name="Наименование материала" type="text" placeholder="Наименование материала" required><br>
   <input name="Кол-во" type="text" placeholder="Количество" ><br>
   <input name="Оборудование" type="text" placeholder="Оборудование"><br>
   <input name="Контрагент" type="text" placeholder="Контрагент"><br>
   <input name="№ договора" type="text" placeholder="№ договора"><br>
   <input name="Комментарий" type="text" placeholder="Комментарий"><br>
-  <input type="file" name="file" id="file"><br>
+  <input type="file" name="file1" id="file1"><br>
   <input type="hidden" name="userid" id="myuserid"><br>
   <input type="hidden" name="Инициатор" id="myusername" ><br>
   <input type="hidden" name="Статус" value="Не обработан" ><br>
@@ -64,8 +64,7 @@
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxytVEv5K-gtAU-zMC9cBdzQDMzm9FszxGjsG4CU_FIyphcBeOeQeDPS77zp4ZTo1S8mQ/exec'
   const form = document.forms['submit-to-google-sheet']
-  
-    
+      
   form.addEventListener('submit', e => {
     let tg1 = window.Telegram.WebApp; //получаем объект webapp телеграма 
     e.preventDefault()
